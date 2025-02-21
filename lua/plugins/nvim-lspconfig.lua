@@ -70,11 +70,6 @@ return {
           enabled = false,
         },
         pyright = {},
-        ruby_lsp = {},
-        rubocop = {
-          cmd = { "bundle", "exec", "rubocop", "--lsp" },
-          root_dir = lspconfig.util.root_pattern("Gemfile", ".git", "."),
-        },
         vtsls = {
           -- explicitly add default filetypes, so that we can extend
           -- them in related extras
