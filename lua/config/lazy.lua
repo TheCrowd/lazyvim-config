@@ -23,7 +23,7 @@ require("lazy").setup({
     { import = "plugins" },
   },
   opts = {
-    colorscheme = "tokyonight",
+    colorscheme = "minischeme",
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -32,7 +32,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight" } },
+  install = { colorscheme = { "minischeme" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {
@@ -52,6 +52,7 @@ require("lazy").setup({
 })
 
 require("lspconfig").kotlin_language_server.setup({})
+require("lspconfig").ruby_lsp.setup({})
 
 require("conform").setup({
   format_on_save = function()
