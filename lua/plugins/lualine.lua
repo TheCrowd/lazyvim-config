@@ -4,6 +4,10 @@ return {
     optional = true,
     event = "VeryLazy",
     opts = function(_, opts)
+      -- Ensure sections exists before modifying
+      if not opts.sections or not opts.sections.lualine_x then
+        return
+      end
       table.insert(
         opts.sections.lualine_x,
         2,
