@@ -1,4 +1,3 @@
-local lspconfig = require("lspconfig")
 return {
   {
     "neovim/nvim-lspconfig",
@@ -69,6 +68,8 @@ return {
         tsserver = {
           enabled = false,
         },
+        kotlin_language_server = {},
+        ruby_lsp = {},
         pyright = {},
         vtsls = {
           -- explicitly add default filetypes, so that we can extend

@@ -18,7 +18,23 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    -- import lazyvim extras
     { import = "lazyvim.plugins.extras.lang.kotlin" },
+    { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.ui.mini-starter" },
+    {
+      import = "lazyvim.plugins.extras.editor.fzf",
+      enabled = function()
+        return LazyVim.pick.want() == "fzf"
+      end,
+    },
+    {
+      import = "lazyvim.plugins.extras.editor.telescope",
+      enabled = function()
+        return LazyVim.pick.want() == "telescope"
+      end,
+    },
     -- import/override with your plugins
     { import = "plugins" },
   },
@@ -51,14 +67,6 @@ require("lazy").setup({
   },
 })
 
-require("lspconfig").kotlin_language_server.setup({})
-require("lspconfig").ruby_lsp.setup({})
-
-require("conform").setup({
-  format_on_save = function()
-    if vim.g.autoformat == false then
-      return
-    end
-    return { timeout_ms = 500, lsp_format = "fallback" }
-  end,
-})
+-- NOTE: LSP and conform configuration should be done in plugin specs, not here.
+-- Move these to lua/plugins/nvim-lspconfig.lua or create separate plugin files.
+-- The configs below are handled by LazyVim's defaults, so they can be removed.
